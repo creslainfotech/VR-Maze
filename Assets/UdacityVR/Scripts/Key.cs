@@ -4,7 +4,10 @@ using UnityEngine;
 
 public class Key : MonoBehaviour 
 {
-    //Create a reference to the KeyPoofPrefab and Door
+    public GameObject door;
+    public GameObject KeyPoofPrefab;
+
+    public GameObject key;
 
 	void Update()
 	{
@@ -12,12 +15,14 @@ public class Key : MonoBehaviour
 	}
 
 	public void OnKeyClicked()
+
 	{
-        // Instatiate the KeyPoof Prefab where this key is located
-        // Make sure the poof animates vertically
-        // Call the Unlock() method on the Door
+        Instantiate(KeyPoofPrefab,transform.position,Quaternion.Euler(-90,0,0));
+        var openDoor = door.GetComponent<Door>();
+        openDoor.Unlock();
+        Destroy(key);
         // Set the Key Collected Variable to true
-        // Destroy the key. Check the Unity documentation on how to use Destroy
+        
     }
 
 }
