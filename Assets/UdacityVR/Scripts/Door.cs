@@ -6,18 +6,24 @@ public class Door : MonoBehaviour
 {
     public bool locked = true;
     public bool opening = false;
+    public Animator doorOpening;
 
     // Create a boolean value called "locked" that can be checked in OnDoorClicked() 
     // Create a boolean value called "opening" that can be checked in Update() 
-
+void start()
+{
+    doorOpening.StopPlayback();
+}
     void Update() {
         // If the door is opening and it is not fully raised
             // Animate the door raising up
     }
 
     public void OnDoorClicked() {
+        
         if(locked == false)
         {
+           doorOpening.SetBool("opening",true);
             opening = true;
         }
         // If the door is clicked and unlocked
