@@ -11,11 +11,6 @@ public class Key : MonoBehaviour
 
     public GameObject wallToBeDestroyed;
 
-	void Update()
-	{
-		//Not required, but for fun why not try adding a Key Floating Animation here :)
-	}
-
 	public void OnKeyClicked()
 
 	{
@@ -24,7 +19,6 @@ public class Key : MonoBehaviour
         openDoor.Unlock();
         Destroy(wallToBeDestroyed);
         Destroy(key);
-        // Set the Key Collected Variable to true
         
     }
 

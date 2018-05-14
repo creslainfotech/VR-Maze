@@ -8,6 +8,14 @@ public class Coin : MonoBehaviour
     public GameObject coinPoofPrefab;
     public GameObject coin;
 
+    public AudioClip myclip;
+    public float speed = 10f;
+    void start()
+    {
+         this.gameObject.AddComponent<AudioSource>();
+         this.GetComponent<AudioSource>().clip = myclip;
+         this.GetComponent<AudioSource>().Play();
+    }
     public void OnCoinClicked() {
        
         Instantiate(coinPoofPrefab,transform.position,Quaternion.Euler(-90,0,0));
